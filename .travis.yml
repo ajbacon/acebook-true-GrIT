@@ -1,11 +1,12 @@
 language: ruby
 rvm:
-- 2.5
+  - 2.5
 services:
-- postgresql
+ - postgresql
 before_script:
-- bundle exec rails db:create
-- bundle exec rails db:migrate
+ - bundle exec rails db:create
+ - bundle exec rails db:migrate
+
 deploy:
   provider: heroku
   app: hidden-cliffs-27554
