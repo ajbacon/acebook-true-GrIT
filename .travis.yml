@@ -7,7 +7,7 @@ before_script:
  - bundle exec rails db:create
  - bundle exec rails db:migrate
  
- deploy:
+deploy:
   provider: heroku
   app: hidden-cliffs-27554
   on:
