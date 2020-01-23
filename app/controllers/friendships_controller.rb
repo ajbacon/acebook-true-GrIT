@@ -15,14 +15,15 @@ class FriendshipsController < ApplicationController
     @friendships = @user.friendships
     @inverse_friendships = @user.inverse_friendships
 
+    @pending_requests = @user.friend_requests
+
     @friends = @user.friends + @user.inverse_friends
-    @non_friends = User.all - @friends - [@user]
+    @non_friends = User.all - @friends - [@user] - @user.pending_friends
   end
 
   def destroy
     @friendship = Friendship.find(params[:id])
     @friendship.destroy
-    flash[:notice] = "removed friendship"
     redirect_to friendships_path
   end
 
