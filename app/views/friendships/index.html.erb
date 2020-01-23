@@ -30,7 +30,7 @@
             <div class='non-friend'>
                 <p>
                 <%= link_to "#{user.username}", user_wall_path(user.id) %>
-                <%= link_to "Add friend", friendships_path(:friend_id => user.id), :method=> :post, :id=> "add_friend_user#{user.id}"   %>
+                <%= link_to "Send Request", pending_friend(user), :method=> :post, :id=> "add_friend_user#{user.id}"   %>
                 <p>
             </div>
         <% end %>
