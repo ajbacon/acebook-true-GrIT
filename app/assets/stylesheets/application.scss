@@ -83,12 +83,14 @@
   }
 
   a {
+    font-family: "Righteous";
     color: white;
   }
 
   a:hover {
-    color: orange;
+    color: white;
     text-decoration: none;
+    text-shadow: 3px 0px orange;
   }
 
   .new-post-btn-container {
