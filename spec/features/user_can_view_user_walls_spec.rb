@@ -6,14 +6,14 @@ RSpec.feature "User walls", type: :feature do
 
   scenario "User can see their own wall after sign up" do
     sign_up("Example1", "email@example.com", "pass12", "pass12")
-    expect(page).to have_content "Account: Example1"
+    expect(page).to have_content "Example1"
   end
 
   scenario "User can see their own wall after sign in" do
     sign_in("#{user.email}", "hey12345")
 
     expect(page).to have_current_path("/#{user.id}")
-    expect(page).to have_content "Account: #{user.username}"
+    expect(page).to have_content "#{user.username}"
   end
 
   context "when searching with /:id url" do
@@ -22,7 +22,7 @@ RSpec.feature "User walls", type: :feature do
       sign_up("Example1", "email@example.com", "pass12", "pass12")
       visit "/#{user.id}"
 
-      expect(page).to have_content "Account: #{user.username}"
+      expect(page).to have_content "#{user.username}"
     end
 
     scenario "User is redirected to 404 error page if trying to visit user page that does not exist" do
