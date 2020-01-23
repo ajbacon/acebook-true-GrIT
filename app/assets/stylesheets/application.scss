@@ -67,13 +67,13 @@
   }
 
   body {
-    background-image: url("https://i.stack.imgur.com/pTnJr.jpg");
+    background-image: image-url("Mercury.jpg");
     align-items: center;
     justify-content: center;
   }
 
   .navbar {
-    background-image: url("http://www.talencia.cat/mypics/max/1/16113_stars-backgrounds.png");
+    background-image: image-url("navStars.png");
   }
 
   .navbar-brand {
@@ -126,11 +126,20 @@
      opacity: 0.75;
   }
 
-#add-friend {
-  text-align: center;
+.profile {
   font-size: 25px;
   font-family: "Righteous";
   background-color: black;
+  color: white;
+  display: flex;
+  opacity: 0.9;
+}
+
+#profile-pic {
+  width: 12%;
+  height: 12%;
+  opacity: 1;
+  border: 6px solid orange;
 }
 
 .post-box {

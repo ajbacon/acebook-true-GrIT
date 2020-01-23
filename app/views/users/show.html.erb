@@ -1,6 +1,7 @@
 
-<div id="add-friend"><%= link_to "Friend List", friendships_path %></div>
-<h1> Account: <%= @user.username %> </h1>
-
-
+<div class="profile">
+  <%= image_tag("alium.jpg", :id => "profile-pic")%>
+  <%= link_to "Friend List", friendships_path %>
+</div>
+<div class="profile"> <%= @user.username %> </div>
 <%= render 'layouts/timeline' %>
