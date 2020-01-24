@@ -27,6 +27,7 @@ RSpec.feature "Friend Requests", type: :feature do
     click_link "My Profile"
     click_link "Friend List"
 
+    expect(page).to have_css("div.friend")
     within(".friends") do
       expect(page).to have_content("TestA")
     end
@@ -35,6 +36,7 @@ RSpec.feature "Friend Requests", type: :feature do
     sign_in("testa@example.com", "pass12A")
     click_link "Friend List"
 
+    expect(page).to have_css("div.friend")
     within(".friends") do
       expect(page).to have_content("TestB")
     end
@@ -65,6 +67,7 @@ RSpec.feature "Friend Requests", type: :feature do
     click_link "My Profile"
     click_link "Friend List"
 
+    expect(page).to have_no_css("div.friend")
     within(".non-friends") do
       expect(page).to have_content("TestA")
     end
@@ -73,6 +76,7 @@ RSpec.feature "Friend Requests", type: :feature do
     sign_in("testa@example.com", "pass12A")
     click_link "Friend List"
 
+    expect(page).to have_no_css("div.friend")
     within(".non-friends") do
       expect(page).to have_content("TestB")
     end
