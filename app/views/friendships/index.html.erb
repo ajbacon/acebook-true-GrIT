@@ -39,7 +39,7 @@
             <div class='non-friend'>
                 <p>
                     <%= link_to "#{user.username}", user_wall_path(user.id) %> |
-                    <%= link_to "Send Request", friend_requests_path(pending_friend_id: user.id), method: :post, id: "add_friend_user#{user.id}"   %>
+                    <%= link_to "Send Request", friend_requests_path(pending_friend_id: user.id), method: :post, id: "add_friend_user#{user.id}" %>
                 <p>
             </div>
         <% end %>
@@ -47,5 +47,5 @@
 <% end %>
 </div>
 <div>
-    <%= link_to "Friend Requests", friend_requests_path %>
+    <%= link_to "Friend Requests", friend_requests_path, id: 'friend-request-btn' %>
 </div>

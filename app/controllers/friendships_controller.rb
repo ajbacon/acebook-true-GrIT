@@ -7,7 +7,7 @@ class FriendshipsController < ApplicationController
     else
       flash[:notice] = "Unable to add friend."
     end
-    redirect_to friendships_path
+    redirect_to request.referrer
   end
 
   def index
