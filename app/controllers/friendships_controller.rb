@@ -14,11 +14,8 @@ class FriendshipsController < ApplicationController
     @user = User.find(session[:recipient_id])
     @friendships = @user.friendships
     @inverse_friendships = @user.inverse_friendships
-
     @pending_requests = @user.friend_requests
-
-    @friends = @user.friends + @user.inverse_friends
-    @non_friends = User.all - @friends - [@user] - @user.pending_friends
+    @non_friends = non_friends(@user)
   end
 
   def destroy
@@ -31,5 +28,10 @@ class FriendshipsController < ApplicationController
 
   def post_params
     params.require(:friendship).permit(:friend_id)
+  end
+
+  def non_friends(user)
+    friends = user.friends + user.inverse_friends
+    User.all - friends - [user] - user.pending_friends
   end
 end

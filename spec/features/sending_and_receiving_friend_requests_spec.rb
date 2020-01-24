@@ -40,8 +40,6 @@ RSpec.feature "Friend Requests", type: :feature do
     within(".friends") do
       expect(page).to have_content("TestB")
     end
-
-
   end
 
   scenario "User can send a friend request that is then declined" do
