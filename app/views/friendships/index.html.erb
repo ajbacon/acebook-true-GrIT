@@ -8,9 +8,9 @@
             <%= link_to "#{friendship.friend.username}", user_wall_path(friendship.friend.id) %> |
             <% if @user.id == current_user.id %>
                 <%= link_to "Remove", friendship, method: :delete %>
-            <% end %> 
+            <% end %>
             <p>
-        </div>        
+        </div>
     <% end %>
     <% @inverse_friendships.each do |friendship| %>
         <div class='friend'>
@@ -33,7 +33,7 @@
                 <%= link_to "#{request.pending_friend.username}", user_wall_path(request.pending_friend.id) %> |
                 <%= link_to "Cancel Request", request, method: :delete %>
                 <p>
-            </div>        
+            </div>
         <% end %>
         <% @non_friends.each do |user| %>
             <div class='non-friend'>
@@ -45,7 +45,7 @@
         <% end %>
     </div>
 <% end %>
-</div>
-<div>
+<div id='friend-requests'>
     <%= link_to "Friend Requests", friend_requests_path, id: 'friend-request-btn' %>
+</div>
 </div>
