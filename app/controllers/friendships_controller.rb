@@ -1,14 +1,14 @@
 class FriendshipsController < ApplicationController
 
-  def create
-    @friendship = current_user.friendships.create(:friend_id => params[:friend_id])
-    if @friendship
-      flash[:notice] = "Added friend."
-    else
-      flash[:notice] = "Unable to add friend."
-    end
-    redirect_to request.referrer
-  end
+  # def create
+  #   @friendship = current_user.friendships.create(:friend_id => params[:friend_id])
+  #   if @friendship
+  #     flash[:notice] = "Added friend."
+  #   else
+  #     flash[:notice] = "Unable to add friend."
+  #   end
+  #   redirect_to request.referrer
+  # end
 
   def index
     @user = User.find(session[:recipient_id])

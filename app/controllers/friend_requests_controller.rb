@@ -25,10 +25,4 @@ class FriendRequestsController < ApplicationController
     @request.destroy
     redirect_to request.referrer
   end
-
-  def accept
-    user.pending_friend << friends
-    destroy
-  end
-
 end
