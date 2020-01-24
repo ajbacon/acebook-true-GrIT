@@ -1,12 +1,13 @@
 <div class='friendlist'>
   <div class='friends'>
     <h3>Friends...</h3>
+
     <% @friendships.each do |friendship| %>
         <div class='friend'>
             <p>
-            <%= link_to "#{friendship.friend.username}", user_wall_path(friendship.friend.id) %>
+            <%= link_to "#{friendship.friend.username}", user_wall_path(friendship.friend.id) %> |
             <% if @user.id == current_user.id %>
-                <%= link_to "Remove", friendship, :method => :delete%>
+                <%= link_to "Remove", friendship, method: :delete %>
             <% end %> 
             <p>
         </div>        
@@ -14,9 +15,9 @@
     <% @inverse_friendships.each do |friendship| %>
         <div class='friend'>
             <p>
-            <%= link_to "#{friendship.user.username}", user_wall_path(friendship.user.id) %>
+            <%= link_to "#{friendship.user.username}", user_wall_path(friendship.user.id) %> |
             <% if @user.id == current_user.id %>
-                <%= link_to "Remove", friendship, :method => :delete%>
+                <%= link_to "Remove", friendship, method: :delete%>
             <% end %>
             <p>
         </div>
@@ -25,15 +26,26 @@
 
 <% if @user.id == current_user.id %>
     <div class='non-friends'>
-        <h3>People you haven't met...</h3>
+        <h3>Potential friends...</h3>
+        <% @pending_requests.each do |request| %>
+            <div class='non-friend'>
+                <p>
+                <%= link_to "#{request.pending_friend.username}", user_wall_path(request.pending_friend.id) %> |
+                <%= link_to "Cancel Request", request, method: :delete %>
+                <p>
+            </div>        
+        <% end %>
         <% @non_friends.each do |user| %>
             <div class='non-friend'>
                 <p>
-                <%= link_to "#{user.username}", user_wall_path(user.id) %>
-                <%= link_to "Add friend", friendships_path(:friend_id => user.id), :method=> :post, :id=> "add_friend_user#{user.id}"   %>
+                    <%= link_to "#{user.username}", user_wall_path(user.id) %> |
+                    <%= link_to "Send Request", friend_requests_path(pending_friend_id: user.id), method: :post, id: "add_friend_user#{user.id}" %>
                 <p>
             </div>
         <% end %>
     </div>
 <% end %>
+</div>
+<div>
+    <%= link_to "Friend Requests", friend_requests_path, id: 'friend-request-btn' %>
 </div>

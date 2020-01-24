@@ -1,7 +1,7 @@
 
 <div class="profile">
   <%= image_tag("alium.jpg", :id => "profile-pic")%>
-  <%= link_to "Friend List", friendships_path %>
+  <%= link_to "Friend List", friendships_path, id: 'friend-list-btn'%>
 </div>
 <div class="profile"> <%= @user.username %> </div>
 <%= render 'layouts/timeline' %>

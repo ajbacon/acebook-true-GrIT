@@ -1,0 +1,17 @@
+<div class='friendlist'>
+  <div class='friends'>
+    <h3>Friend Requests</h3>
+    <% if @user.id == current_user.id %>
+        <% @requests.each do |request| %>
+            <div class='friend'>
+                <p>
+                    <%= link_to "#{request.user.username}", user_wall_path(request.user.id) %> |
+                    <%= link_to "Accept", request, method: :patch %> |
+                    <%= link_to "Decline", request, method: :delete %>
+                <p>
+            </div>        
+        <% end %>
+    <% end %> 
+  </div>
+</div>
+
