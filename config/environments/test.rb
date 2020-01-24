@@ -8,7 +8,7 @@ Rails.application.configure do
       'provider' => 'github',
       'uid' => '123545',
       'info' => {
-        'username' => 'Test24',
+        'nickname' => 'Test24',
         'email' => 'test@example.com',
         'password' => 'test1234'
       },
