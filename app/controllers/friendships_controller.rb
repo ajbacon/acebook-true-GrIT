@@ -26,10 +26,6 @@ class FriendshipsController < ApplicationController
 
   private
 
-  def post_params
-    params.require(:friendship).permit(:friend_id)
-  end
-
   def non_friends(user)
     friends = user.friends + user.inverse_friends
     User.all - friends - [user] - user.pending_friends

@@ -5,7 +5,6 @@ RSpec.feature "Friend Requests", type: :feature do
 
   let(:friendship1) { create(:friendship, :user_id => 1, :friend_id => 2) }
 
-
   scenario "User can send a friend request that is then accepted" do
     userA
     userB
